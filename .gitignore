@@ -1,0 +1,10 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
