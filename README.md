@@ -16,6 +16,8 @@ git clone https://github.com/uedatakeshi/weeklyReportB.git myapp
 ```bash
 cd myapp
 curl -s https://getcomposer.org/installer | php
+# mac標準(SSLの認証回避が必要時) 
+# curl -sS -k https://getcomposer.org/installer | php
 php composer.phar update
 ```
 
@@ -53,6 +55,9 @@ vim config/app.php
 	],
 ```
 
+login, password, databaseを書き換え。
+login, passwordはデフォルトなら'root', ''かもしれない。 
+databaseはreport_db。
 
 ```php
 	'Datasources' => [
@@ -78,6 +83,7 @@ mysql -u root -p
 
 ```sql
 CREATE DATABASE report_db DEFAULT CHARACTER SET utf8;
+use report_db
 CREATE TABLE reports(
 	id INT AUTO_INCREMENT,
     report_date DATE,
