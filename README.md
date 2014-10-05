@@ -92,6 +92,7 @@ CREATE TABLE reports(
 ```
 
 
+http://localhost/myapp/reports に接続
 
 
     
