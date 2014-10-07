@@ -42,4 +42,7 @@ class ReportsTable extends Table {
 		return $validator;
 	}
 
+	public function selectReportsByDate($date){
+		return $this->find('all')->where(['report_date' => $date]);
+	}
 }
