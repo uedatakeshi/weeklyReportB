@@ -91,4 +91,11 @@ class ReportsController extends AppController {
 		}
 		return $this->redirect(['action' => 'index']);
 	}
+
+	public function search(){
+        $date = $this->request->data["date"];
+		$reports = $this->Reports->selectReportsByDate($date);
+		$this->set('reports', $reports);
+        $this->render("index");
+	}
 }

@@ -4,6 +4,14 @@
 		<li><?= $this->Html->link(__('新規登録'), ['action' => 'add']) ?></li>
 	</ul>
 </div>
+
+<div>
+<?= $this->Form->create(null, ['action' => 'search']);?>
+日付選択： <input type="text" id="datepicker" name="date" style="width:10%" value="<?php echo date("Y-m-d");?>">
+<input type="submit" id="filter-btn" value="絞込み">
+</form>
+</div>
+
 <div class="reports index large-10 medium-9 columns">
 	<table cellpadding="0" cellspacing="0">
 	<thead>
@@ -44,3 +52,10 @@
 		<p><?= $this->Paginator->counter() ?></p>
 	</div>
 </div>
+
+
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"});
+  });
+  </script>
