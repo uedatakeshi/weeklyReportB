@@ -4,6 +4,14 @@
 		<li><?= $this->Html->link(__('新規登録'), ['action' => 'add']) ?></li>
 	</ul>
 </div>
+
+<div>
+<?= $this->Form->create(null, ['action' => 'search']);?>
+日付選択： <input type="text" id="datepicker" name="date" style="width:10%" value="<?php echo date("Y-m-d");?>">
+<input type="submit" id="filter-btn" value="絞込み">
+</form>
+</div>
+
 <div class="reports index large-10 medium-9 columns">
 	<table cellpadding="0" cellspacing="0">
 	<thead>
@@ -25,7 +33,6 @@
 			<td><?= h($report->created) ?></td>
 			<td><?= h($report->modified) ?></td>
 			<td class="actions">
-				<?= $this->Html->link(__('search'), ['action' => 'search', '2014-10-07']) ?>
 				<?= $this->Html->link(__('参照'), ['action' => 'view', $report->id]) ?>
 				<?= $this->Html->link(__('編集'), ['action' => 'edit', $report->id]) ?>
 				<?= $this->Form->postLink(__('削除'), ['action' => 'delete', $report->id], ['confirm' => __('Are you sure you want to delete # {0}?', $report->id)]) ?>
@@ -45,3 +52,10 @@
 		<p><?= $this->Paginator->counter() ?></p>
 	</div>
 </div>
+
+
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"});
+  });
+  </script>
