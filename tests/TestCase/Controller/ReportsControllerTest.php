@@ -24,43 +24,26 @@ class ReportsControllerTest extends IntegrationTestCase {
  * @return void
  */
 	public function testIndex() {
-		$this->markTestIncomplete('testIndex not implemented.');
+		$this->get('/Reports');
+
+		$this->assertResponseOk();
+		$this->assertResponseContains('Reports');
+		$this->assertResponseContains('山田太郎');
 	}
 
 /**
- * testView method
+ * testSearch method
  *
  * @return void
  */
-	public function testView() {
-		$this->markTestIncomplete('testView not implemented.');
-	}
+	public function testSearch() {
+		$data = [
+			'date' => '2014-10-05'
+		];
+		$this->post('/Reports/search', $data);
 
-/**
- * testAdd method
- *
- * @return void
- */
-	public function testAdd() {
-		$this->markTestIncomplete('testAdd not implemented.');
+		$this->assertResponseOk();
+		$this->assertResponseContains('Reports');
+		$this->assertResponseContains('山田太郎');
 	}
-
-/**
- * testEdit method
- *
- * @return void
- */
-	public function testEdit() {
-		$this->markTestIncomplete('testEdit not implemented.');
-	}
-
-/**
- * testDelete method
- *
- * @return void
- */
-	public function testDelete() {
-		$this->markTestIncomplete('testDelete not implemented.');
-	}
-
 }

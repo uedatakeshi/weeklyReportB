@@ -16,6 +16,12 @@ class ReportsController extends AppController {
  * @return void
  */
 	public function index() {
+		$query = $this->Reports->find();
+
+		//$results = $query->all()->toArray();
+		//$query->hydrate(false);
+		//print_r($query->toArray());
+
 		$this->set('reports', $this->paginate($this->Reports));
 	}
 
@@ -93,9 +99,9 @@ class ReportsController extends AppController {
 	}
 
 	public function search(){
-        $date = $this->request->data["date"];
+		$date = $this->request->data["date"];
 		$reports = $this->Reports->selectReportsByDate($date);
 		$this->set('reports', $reports);
-        $this->render("index");
+		$this->render("index");
 	}
 }
