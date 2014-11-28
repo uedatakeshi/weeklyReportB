@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Exception\ForbiddenException;
+use Cake\Event\Event;
 
 /**
  * Users Controller
@@ -9,6 +11,22 @@ use App\Controller\AppController;
  * @property App\Model\Table\UsersTable $Users
  */
 class UsersController extends AppController {
+
+    public function initialize() {
+        parent::initialize();
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'username', 'password' => 'password']
+                ]
+            ]
+        ]);
+    }
+
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+        $this->Auth->allow('add');
+    }
 
 /**
  * Index method
@@ -83,7 +101,7 @@ class UsersController extends AppController {
  */
 	public function delete($id = null) {
 		$user = $this->Users->get($id);
-		$this->request->allowMethod('post', 'delete');
+		$this->request->allowMethod(['post', 'delete']);
 		if ($this->Users->delete($user)) {
 			$this->Flash->success('The user has been deleted.');
 		} else {

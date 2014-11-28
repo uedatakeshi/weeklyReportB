@@ -11,6 +11,15 @@ use Cake\TestSuite\TestCase;
 class UsersTableTest extends TestCase {
 
 /**
+ * Fixtures
+ *
+ * @var array
+ */
+	public $fixtures = [
+		'app.users'
+	];
+
+/**
  * setUp method
  *
  * @return void
@@ -30,6 +39,24 @@ class UsersTableTest extends TestCase {
 		unset($this->Users);
 
 		parent::tearDown();
+	}
+
+/**
+ * Test initialize method
+ *
+ * @return void
+ */
+	public function testInitialize() {
+		$this->markTestIncomplete('Not implemented yet.');
+	}
+
+/**
+ * Test validationDefault method
+ *
+ * @return void
+ */
+	public function testValidationDefault() {
+		$this->markTestIncomplete('Not implemented yet.');
 	}
 
 }
