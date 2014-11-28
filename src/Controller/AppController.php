@@ -29,16 +29,28 @@ class AppController extends Controller {
     public function initialize() {
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+            'authorize' => ['Controller'], // Added this line
             'loginRedirect' => [
-                'controller' => 'Articles',
+                'controller' => 'reports',
                 'action' => 'index'
             ],
             'logoutRedirect' => [
-                'controller' => 'Pages',
-                'action' => 'display',
+                'controller' => 'users',
+                'action' => 'login',
                 'home'
-            ]
+            ],
+            'authError' => 'authentication error'
         ]);
+    }
+
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Default deny
+        return false;
     }
 
 /**
