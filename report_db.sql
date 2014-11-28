@@ -17,9 +17,9 @@ CREATE TABLE reports(
 
 CREATE TABLE users(
 	id INT AUTO_INCREMENT,
-	name VARCHAR(255),
-	password VARCHAR(255),
-	role INT,
+	username VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	role VARCHAR(20) NOT NULL,
 	created DATETIME,
 	modified DATETIME,
 	PRIMARY KEY  (id)
