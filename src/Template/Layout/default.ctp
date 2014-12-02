@@ -42,6 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 			<span><?= $this->fetch('title') ?></span>
 		</div>
 		<div class="header-help">
+		<span><?= $this->Html->link('ログアウト', '/users/logout');?></span>
 			<span><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></span>
 			<span><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></span>
 		</div>
