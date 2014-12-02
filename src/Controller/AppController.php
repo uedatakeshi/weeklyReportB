@@ -26,6 +26,33 @@ use Cake\Controller\Controller;
  */
 class AppController extends Controller {
 
+    public function initialize() {
+        $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authorize' => ['Controller'], // Added this line
+            'loginRedirect' => [
+                'controller' => 'reports',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'users',
+                'action' => 'login',
+                'home'
+            ],
+            'authError' => 'authentication error'
+        ]);
+    }
+
+    public function isAuthorized($user) {
+        // Admin can access every action
+        if (isset($user['role']) && $user['role'] === 'admin') {
+            return true;
+        }
+
+        // Default deny
+        return false;
+    }
+
 /**
  * Components this controller uses.
  *

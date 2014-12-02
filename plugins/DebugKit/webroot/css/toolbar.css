@@ -112,6 +112,15 @@ p {
 .history-mode .panel-active {
 	background: #ab47bc;
 }
+.panel-active {
+	color: #fff;
+	background-color: #009688;
+	transition: background-color 300ms linear;
+
+}
+.history-mode .panel-active {
+	background: #ab47bc;
+}
 
 /**
  * Panel layout
