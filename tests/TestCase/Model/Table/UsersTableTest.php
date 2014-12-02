@@ -4,6 +4,7 @@ namespace App\Test\TestCase\Model\Table;
 use Cake\ORM\TableRegistry;
 use App\Model\Table\UsersTable;
 use Cake\TestSuite\TestCase;
+use Cake\I18n\Time;
 
 /**
  * App\Model\Table\UsersTable Test Case

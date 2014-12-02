@@ -36,8 +36,8 @@ class EmployeesFixture extends TestFixture {
 	public $records = [
 		[
 			'id' => 1,
-			'employee_number' => 'Lorem ipsum dolor sit amet',
-			'name' => 'Lorem ipsum dolor sit amet',
+			'employee_number' => 'A0123DES',
+			'name' => '佐藤一郎',
 			'created' => '2014-10-07 12:14:47',
 			'modified' => '2014-10-07 12:14:47'
 		],
